@@ -25,7 +25,6 @@ export const login = async (req, res, next) => {
     res.status(200).send({token: token, _id: user._id});
 };
 
-
 export const verify = async (token) => {
     const ticket = await client.verifyIdToken({
         idToken: token,
