@@ -3,7 +3,7 @@ import User from '../models/User.js';
 
 const RECIPE_POPULATE = { path: 'owner', select: 'name photo_url' };
 
-export const recipeList = (req, res, next) => {
+export const recipeList = async (req, res, next) => {
     try {
         const recipes = await Recipe.find().populate(RECIPE_POPULATE);
         res.status(200).send(recipes);
@@ -13,10 +13,9 @@ export const recipeList = (req, res, next) => {
     };
 };
 
-
 export const recipeDetail = async (req, res, next) => {
     try {
-        const recipe = await Recipe.populate(RECIPE_POPULATE).findById(req.params.id)
+        const recipe = await Recipe.findById(req.params.id).populate(RECIPE_POPULATE)
         res.status(200).send(recipe);
     } catch (err) {
         console.log(err);
@@ -70,7 +69,6 @@ export const updateRecipe = async (req, res, next) => {
         return next(err);
     }
 };
-
 
 export const deleteRecipe = async (req, res, next) => {
     try {

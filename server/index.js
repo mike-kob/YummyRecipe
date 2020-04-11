@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import {logging} from './middleware/logging.js';
+import router from './routes/index.js';
 
 dotenv.config();
 const app = express();
@@ -23,6 +24,7 @@ app.use(logging);
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
+app.use('/api', router);
 
 app.listen(PORT, () => {
     console.log(`your server is running on ${PORT}`);
