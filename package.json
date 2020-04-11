@@ -1,0 +1,29 @@
+{
+  "name": "yummyrecipe",
+  "version": "1.0.0",
+  "description": "Really cool recipe book. CRUD React/Redux + Node.js app",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": "13.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start_dev": "nodemon server --exec node"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "google-auth-library": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.7"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.3"
+  }
+}
