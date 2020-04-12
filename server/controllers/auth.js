@@ -3,9 +3,7 @@ import jwt from 'jsonwebtoken';
 
 import User from '../models/User.js';
 
-const CLIENT_ID = process.env.CLIENT_ID;
-const SECRET = process.env.SECRET;
-const client = new auth.OAuth2Client(CLIENT_ID);
+const client = new auth.OAuth2Client(process.env.CLIENT_ID);
 
 export const login = async (req, res, next) => {
     const payload = await verify(req.body.tokenId);
@@ -21,14 +19,14 @@ export const login = async (req, res, next) => {
         await user.save();
     }
 
-    const token = jwt.sign({ googleId:payload['sub'] }, SECRET);
-    res.status(200).send({token: token, _id: user._id});
+    const token = jwt.sign({ googleId:payload['sub'] }, process.env.SECRET);
+    res.status(200).send({token: token, _id: user._id, liked: user.liked});
 };
 
 export const verify = async (token) => {
     const ticket = await client.verifyIdToken({
         idToken: token,
-        audience: CLIENT_ID,
+        audience: process.env.CLIENT_ID,
     });
     const payload = ticket.getPayload();
     return payload;
