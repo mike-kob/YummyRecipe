@@ -7,8 +7,16 @@
   "engines": {
     "node": "13.x"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike-kob/YummyRecipe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mike-kob/YummyRecipe/issues"
+  },
+  "homepage": "https://github.com/mike-kob/YummyRecipe#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server --input-type=module",
     "start_dev": "nodemon server --exec node"
   },
   "author": "",
