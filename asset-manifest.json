@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/YummyRecipe/static/css/main.5f361e03.chunk.css",
+    "main.js": "/YummyRecipe/static/js/main.88a825fa.chunk.js",
+    "main.js.map": "/YummyRecipe/static/js/main.88a825fa.chunk.js.map",
+    "runtime-main.js": "/YummyRecipe/static/js/runtime-main.c0b0dc39.js",
+    "runtime-main.js.map": "/YummyRecipe/static/js/runtime-main.c0b0dc39.js.map",
+    "static/js/2.e26aeca9.chunk.js": "/YummyRecipe/static/js/2.e26aeca9.chunk.js",
+    "static/js/2.e26aeca9.chunk.js.map": "/YummyRecipe/static/js/2.e26aeca9.chunk.js.map",
+    "index.html": "/YummyRecipe/index.html",
+    "precache-manifest.b19f6d33828ba9752241ae09e3584ec5.js": "/YummyRecipe/precache-manifest.b19f6d33828ba9752241ae09e3584ec5.js",
+    "service-worker.js": "/YummyRecipe/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/YummyRecipe/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.e26aeca9.chunk.js.LICENSE.txt": "/YummyRecipe/static/js/2.e26aeca9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c0b0dc39.js",
+    "static/js/2.e26aeca9.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.88a825fa.chunk.js"
+  ]
+}
