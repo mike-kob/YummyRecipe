@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:5000/api/'
+  baseURL: 'https://safe-forest-86784.herokuapp.com/api/'
 });
