@@ -6,7 +6,7 @@ export const authActions = {
     logout
 };
 
-function login(user, tokenId) {
+function login(user, tokenId, onSuccess) {
     return dispatch => {
 
         api.post('/login', { tokenId: tokenId })
@@ -17,12 +17,16 @@ function login(user, tokenId) {
                         user: {
                             ...user,
                             _id: res.data._id,
+                            liked: res.data.liked || [],
                         },
                         token: res.data.token,
                     }
 
                     localStorage.setItem('auth', JSON.stringify(data));
                     dispatch({ type: recipeConstants.AUTH_LOGIN, data: data });
+                    if (onSuccess) {
+                        onSuccess();
+                    }
                 },
                 error => {
                     dispatch({ type: recipeConstants.SHOW_SNACKBAR, data: error.toString() });

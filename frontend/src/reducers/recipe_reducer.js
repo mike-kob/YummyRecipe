@@ -54,7 +54,7 @@ export function recipes(state = initialState, action) {
       return {
         ...state,
         recipes: [
-          ...state.recipes.filter(obj => obj._id != action.data.recipe._id),
+          ...state.recipes.filter(obj => obj._id !== action.data.recipe._id),
           action.data.recipe,
         ]
       }

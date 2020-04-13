@@ -40,8 +40,7 @@ export const createRecipe = async (req, res, next) => {
 
 export const updateRecipe = async (req, res, next) => {
     try {
-        const recipe = await Recipe.populate({ path: 'owner', select: 'googleId' })
-            .findById(req.params.id);
+        const recipe = await Recipe.findOne({_id: req.params.id}).populate({ path: 'owner', select: 'googleId' });
         if (recipe.owner.googleId !== req.googleId) {
             res.status(403).send();
             return;

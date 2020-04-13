@@ -3,6 +3,7 @@ import { api } from '../utils/api';
 
 export const recipeActions = {
     getRecipeList,
+    getCategoryList,
     getRecipeDetail,
     filterRecipeList,
     selectSorting,
@@ -34,6 +35,19 @@ function getRecipeList() {
             )
     };
 }
+
+function getCategoryList() {
+    return {
+        type: recipeConstants.GET_CATEGORY_LIST_SUCCESS,
+        data: [
+            'Meat',
+            'Salads',
+            'Side dishes',
+            'Main dishes',
+        ]
+    };
+}
+
 
 function getRecipeDetail(recipeId) {
     return dispatch => {
@@ -161,7 +175,7 @@ function getLikedRecipeList() {
 }
 
 
-function likeRecipe(data, userId) {
+function likeRecipe(data, recipe) {
     return dispatch => {
         dispatch({ type: recipeConstants.LIKE_RECIPE_REQUEST });
         const auth = JSON.parse(localStorage.getItem('auth'));
@@ -172,7 +186,7 @@ function likeRecipe(data, userId) {
         api.post('/like', data, { 'headers': { 'Authorization': auth.token } })
             .then(
                 _ => {
-                    dispatch({ type: recipeConstants.LIKE_RECIPE_SUCCESS, data: { recipeId: data.recipeId, userId: userId }, snackbar: "Added recipe to Liked" });
+                    dispatch({ type: recipeConstants.LIKE_RECIPE_SUCCESS, data: recipe, snackbar: "Added recipe to Liked" });
                 })
             .catch(
                 error => {
@@ -182,7 +196,7 @@ function likeRecipe(data, userId) {
     };
 }
 
-function unlikeRecipe(data, userId) {
+function unlikeRecipe(data, recipe) {
     return dispatch => {
         dispatch({ type: recipeConstants.UNLIKE_RECIPE_REQUEST });
         const auth = JSON.parse(localStorage.getItem('auth'));
@@ -193,7 +207,7 @@ function unlikeRecipe(data, userId) {
         api.post('/unlike', data, { 'headers': { 'Authorization': auth.token } })
             .then(
                 _ => {
-                    dispatch({ type: recipeConstants.UNLIKE_RECIPE_SUCCESS, data: { recipeId: data.recipeId, userId: userId }, snackbar: "Remove recipe from Liked" });
+                    dispatch({ type: recipeConstants.UNLIKE_RECIPE_SUCCESS, data: recipe, snackbar: "Remove recipe from Liked" });
                 })
             .catch(
                 error => {
@@ -204,7 +218,7 @@ function unlikeRecipe(data, userId) {
 }
 
 
-function likeCurrentRecipe(data, userId) {
+function likeCurrentRecipe(data, recipe) {
     return dispatch => {
         dispatch({ type: recipeConstants.LIKE_CURRENT_RECIPE_REQUEST });
         const auth = JSON.parse(localStorage.getItem('auth'));
@@ -215,7 +229,7 @@ function likeCurrentRecipe(data, userId) {
         api.post('/like', data, { 'headers': { 'Authorization': auth.token } })
             .then(
                 _ => {
-                    dispatch({ type: recipeConstants.LIKE_CURRENT_RECIPE_SUCCESS, data: { recipeId: data.recipeId, userId: userId }, snackbar: "Added recipe to Liked" });
+                    dispatch({ type: recipeConstants.LIKE_CURRENT_RECIPE_SUCCESS, data: recipe, snackbar: "Added recipe to Liked" });
                 })
             .catch(
                 error => {
@@ -225,7 +239,7 @@ function likeCurrentRecipe(data, userId) {
     };
 }
 
-function unlikeCurrentRecipe(data, userId) {
+function unlikeCurrentRecipe(data, recipe) {
     return dispatch => {
         dispatch({ type: recipeConstants.UNLIKE_CURRENT_RECIPE_REQUEST });
         const auth = JSON.parse(localStorage.getItem('auth'));
@@ -236,7 +250,7 @@ function unlikeCurrentRecipe(data, userId) {
         api.post('/unlike', data, { 'headers': { 'Authorization': auth.token } })
             .then(
                 _ => {
-                    dispatch({ type: recipeConstants.UNLIKE_CURRENT_RECIPE_SUCCESS, data: { recipeId: data.recipeId, userId: userId }, snackbar: "Remove recipe from Liked" });
+                    dispatch({ type: recipeConstants.UNLIKE_CURRENT_RECIPE_SUCCESS, data: recipe, snackbar: "Remove recipe from Liked" });
                 })
             .catch(
                 error => {

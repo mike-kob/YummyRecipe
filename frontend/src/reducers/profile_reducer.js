@@ -44,11 +44,23 @@ export function profile(state = initialState, action) {
       return {
         ...state,
         profileRecipes: [
-          ...state.recipes,
+          ...state.profileRecipes,
           action.data,
         ]
       }
-
+    case recipeConstants.LIKE_RECIPE_SUCCESS: case recipeConstants.LIKE_CURRENT_RECIPE_SUCCESS:
+      return {
+        ...state,
+        likedRecipes: [
+          ...state.likedRecipes,
+          action.data
+        ]
+      }
+    case recipeConstants.UNLIKE_RECIPE_SUCCESS: case recipeConstants.UNLIKE_CURRENT_RECIPE_SUCCESS:
+      return {
+        ...state,
+        likedRecipes: state.likedRecipes.filter(o => o._id !== action.data._id)
+      }
     default:
       return state
   }

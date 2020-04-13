@@ -14,7 +14,13 @@ export const recipeUserList = async (req, res, next) => {
 
 export const recipeFavoriteList = async (req, res, next) => {
     try {
-        const user = await User.findOne({ googleId: req.googleId }).populate('liked');
+        const user = await User.findOne({ googleId: req.googleId }).populate({
+            path : 'liked',
+            populate : {
+              path : 'owner',
+              select: 'name photo_url',
+            }
+          });
         res.status(200).send(user.liked);
     } catch (err) {
         console.log(err);
@@ -55,8 +61,10 @@ export const unlikeRecipe = async (req, res, next) => {
         }
 
         if (user.liked.includes(recipe._id)) {
-            user.update({liked: user.liked.filter(o => o.id !== recipe._id)});
-            await user.save();
+            await user.update({
+                liked: user.liked.filter(o => !o._id.equals(recipe._id))
+            });
+            
         }
 
         res.status(204).send();

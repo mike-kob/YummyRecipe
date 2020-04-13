@@ -1,7 +1,5 @@
 import jwt from 'jsonwebtoken';
 
-const secret = process.env.SECRET;
-
 export const withAuth = (req, res, next) => {
     const token = req.get('Authorization');
 
@@ -10,7 +8,7 @@ export const withAuth = (req, res, next) => {
     } else {
         jwt.verify(
             token,
-            secret,
+            process.env.SECRET,
             (err, decoded) => {
             if (err) {
                 res.status(401).send('Unauthorized: Invalid token');
