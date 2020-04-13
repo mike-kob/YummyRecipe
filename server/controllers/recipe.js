@@ -71,7 +71,7 @@ export const updateRecipe = async (req, res, next) => {
 
 export const deleteRecipe = async (req, res, next) => {
     try {
-        const user = await User.findById(req.googleId);
+        const user = await User.findOne({googleId: req.googleId});
         await Recipe.deleteOne({ _id: req.params.id, owner: user._id });
         res.status(204).send();
     } catch (err) {
