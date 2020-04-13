@@ -58,7 +58,19 @@ export function recipes(state = initialState, action) {
           action.data.recipe,
         ]
       }
-
+    case recipeConstants.DELETE_RECIPE_SUCCESS:
+      return {
+        ...state,
+        recipes: state.recipes.filter(obj => obj._id !== action.data.pk)
+      }
+    case recipeConstants.ADD_RECIPE_SUCCESS:
+      return {
+        ...state,
+        recipes: [
+          ...state.recipes,
+          action.data,
+        ]
+      }
     default:
       return state
   }

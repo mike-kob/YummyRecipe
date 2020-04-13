@@ -79,7 +79,9 @@ function deleteRecipe(pk, callback) {
             .then(
                 _ => {
                     dispatch({ type: recipeConstants.DELETE_RECIPE_SUCCESS, data: { pk: pk }, snackbar: "Successfully deleted" });
-                    callback();
+                    if (callback) {
+                        callback();
+                    }
                 })
             .catch(
                 error => {

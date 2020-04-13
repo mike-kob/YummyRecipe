@@ -37,7 +37,7 @@ export function profile(state = initialState, action) {
     case recipeConstants.DELETE_RECIPE_SUCCESS:
       return {
         ...state,
-        recipes: state.profileRecipes.filter(recipe => recipe._id !== action.data.pk)
+        profileRecipes: state.profileRecipes.filter(recipe => recipe._id !== action.data.pk)
       }
 
     case recipeConstants.ADD_RECIPE_SUCCESS:

@@ -41,6 +41,10 @@ const styles = theme => ({
 
 class RecipePage extends Component {
 
+    state = {
+        toRecipes: false
+    }
+
     componentDidMount() {
         this.props.getRecipeDetail(this.props.match.params.recipeId);
     }
@@ -55,8 +59,8 @@ class RecipePage extends Component {
     }
 
     render() {
-        if (this.props.recipes.redirect) {
-            return <Redirect to={this.props.recipes.redirect} />
+        if (this.state.toRecipes) {
+            return <Redirect to={'/recipes'} />
         }
         const { classes, recipe } = this.props;
 
@@ -105,7 +109,7 @@ class RecipePage extends Component {
                             <React.Fragment>
                                 <Button variant="contained" component={Link} to={`/edit/${recipe._id}`} style={{ margin: '5px' }}>Edit</Button>
                                 <Button variant="contained" color="secondary" style={{ margin: '5px' }} onClick={() => {
-                                    this.props.deleteRecipe(recipe._id, "/recipes");
+                                    this.props.deleteRecipe(recipe._id, () => {this.setState({toRecipes: true})});
                                 }}>Delete</Button>
                             </React.Fragment >
                             :
