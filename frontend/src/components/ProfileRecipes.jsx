@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom';
 import {
     Paper,
     Tabs,
@@ -47,8 +48,10 @@ class ProfileRecipes extends Component {
     }
 
     componentDidMount() {
-        this.props.getProfileRecipeList();
-        this.props.getLikedRecipeList();
+        if (this.props.profile._id) {
+            this.props.getProfileRecipeList();
+            this.props.getLikedRecipeList();
+        }
     }
 
     renderRecipes = (recipes) => {
@@ -63,11 +66,11 @@ class ProfileRecipes extends Component {
         const { classes, recipes } = this.props;
 
         return (
-                <Grid item xs={12} className={classes.main}>
-                    <Grid container spacing={3} classes={{ root: classes.root }}>
-                        {this.renderRecipes(recipes)}
-                    </Grid>
+            <Grid item xs={12} className={classes.main}>
+                <Grid container spacing={3} classes={{ root: classes.root }}>
+                    {this.renderRecipes(recipes)}
                 </Grid>
+            </Grid>
 
         )
     }
@@ -124,6 +127,9 @@ class ProfileRecipes extends Component {
     }
 
     render() {
+        if (!this.props.profile._id) {
+            return <Redirect to={'/recipes'} />
+        }
         const { classes } = this.props;
         return (
             <React.Fragment>
@@ -156,6 +162,7 @@ function mapStateToProps(state) {
     return {
         recipes: state.profile.profileRecipes,
         likedRecipes: state.profile.likedRecipes,
+        profile: state.auth.user,
     };
 }
 

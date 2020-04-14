@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-import { withStyles, Avatar } from '@material-ui/core'
+import { withStyles, Avatar, CircularProgress } from '@material-ui/core'
 import { GoogleLogin } from 'react-google-login'
 import {
     AppBar,
@@ -33,6 +33,11 @@ const styles = theme => ({
         flexGrow: 1,
         textAlign: 'left',
     },
+
+    fabProgress: {
+        color: 'white',
+
+      },
 
 })
 
@@ -66,14 +71,16 @@ class Header extends Component {
 
     render() {
 
-        const { classes } = this.props;
+        const { classes, loader } = this.props;
 
         return (
             <AppBar position="static" elevation={1} className={classes.root}>
                 <Toolbar variant="dense" position="static">
                     <Typography className={classes.title} variant="h6" color="inherit" component={Link} to='/'>
                         Yummy recipes
+                       
                     </Typography>
+                    {loader && <CircularProgress size={36} className={classes.fabProgress} />}
                     {!this.props.auth.loggedIn ?
                         <GoogleLogin
                             clientId="519594520395-kk3c91nsf94s0kb47j4kgocj8s2104nl.apps.googleusercontent.com"
@@ -129,7 +136,8 @@ class Header extends Component {
 
 function mapStateToProps(state) {
     return {
-        auth: state.auth
+        auth: state.auth,
+        loader: state.loader,
     };
 }
 

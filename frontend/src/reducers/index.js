@@ -5,6 +5,7 @@ import { consent } from './consent_reducer';
 import { snackbar } from './snackbar_reducer';
 import { auth } from './auth_reducer';
 import { profile } from './profile_reducer';
+import { loader } from './loader_reducer';
 
 const rootReducer = combineReducers({
     recipes,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     snackbar,
     auth,
     profile,
+    loader,
 });
 
 export default rootReducer;
