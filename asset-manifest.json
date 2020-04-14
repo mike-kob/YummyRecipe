@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/YummyRecipe/static/css/main.5f361e03.chunk.css",
-    "main.js": "/YummyRecipe/static/js/main.7f2cca2e.chunk.js",
-    "main.js.map": "/YummyRecipe/static/js/main.7f2cca2e.chunk.js.map",
+    "main.js": "/YummyRecipe/static/js/main.235421c3.chunk.js",
+    "main.js.map": "/YummyRecipe/static/js/main.235421c3.chunk.js.map",
     "runtime-main.js": "/YummyRecipe/static/js/runtime-main.c0b0dc39.js",
     "runtime-main.js.map": "/YummyRecipe/static/js/runtime-main.c0b0dc39.js.map",
-    "static/js/2.0bdec4b1.chunk.js": "/YummyRecipe/static/js/2.0bdec4b1.chunk.js",
-    "static/js/2.0bdec4b1.chunk.js.map": "/YummyRecipe/static/js/2.0bdec4b1.chunk.js.map",
+    "static/js/2.7e541dcd.chunk.js": "/YummyRecipe/static/js/2.7e541dcd.chunk.js",
+    "static/js/2.7e541dcd.chunk.js.map": "/YummyRecipe/static/js/2.7e541dcd.chunk.js.map",
     "index.html": "/YummyRecipe/index.html",
-    "precache-manifest.271eca2613d9df2c2bc6dc65784fa416.js": "/YummyRecipe/precache-manifest.271eca2613d9df2c2bc6dc65784fa416.js",
+    "precache-manifest.6241b4d53416c99cc5ac977f6738f5c0.js": "/YummyRecipe/precache-manifest.6241b4d53416c99cc5ac977f6738f5c0.js",
     "service-worker.js": "/YummyRecipe/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/YummyRecipe/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.0bdec4b1.chunk.js.LICENSE.txt": "/YummyRecipe/static/js/2.0bdec4b1.chunk.js.LICENSE.txt"
+    "static/js/2.7e541dcd.chunk.js.LICENSE.txt": "/YummyRecipe/static/js/2.7e541dcd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c0b0dc39.js",
-    "static/js/2.0bdec4b1.chunk.js",
+    "static/js/2.7e541dcd.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.7f2cca2e.chunk.js"
+    "static/js/main.235421c3.chunk.js"
   ]
 }
