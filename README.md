@@ -1,5 +1,4 @@
 <h1>YummyRecipe app</h1>
-<p><a href="https://mike-kob.github.io/YummyRecipe/" rel="nofollow">Live demo</a></p>
 <p>Simple multi-page CRUD cookbook app with responsive material design and Google authentication.</p>
 <p>Used frontend libraries:</p>
 <ul>
