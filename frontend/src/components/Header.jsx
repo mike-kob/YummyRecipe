@@ -32,6 +32,7 @@ const styles = theme => ({
     title: {
         flexGrow: 1,
         textAlign: 'left',
+        textDecoration: 'none',
     },
 
     fabProgress: {
@@ -76,9 +77,8 @@ class Header extends Component {
         return (
             <AppBar position="static" elevation={1} className={classes.root}>
                 <Toolbar variant="dense" position="static">
-                    <Typography className={classes.title} variant="h6" color="inherit" component={Link} to='/'>
+                    <Typography className={classes.title} variant="h6" color="inherit" component={Link} to='' href="">
                         Yummy recipes
-                       
                     </Typography>
                     {loader && <CircularProgress size={36} className={classes.fabProgress} />}
                     {!this.props.auth.loggedIn ?
